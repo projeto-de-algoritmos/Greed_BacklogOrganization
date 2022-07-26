@@ -1,10 +1,11 @@
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const AddNewItem = ({ updateTasks }) => {
-  const initialInputState = { 
-    name: "task", 
-    amount: 1, 
-    deadline: 1 
+  const initialInputState = {
+    name: "task",
+    amount: 1,
+    deadline: 1,
   };
 
   const [form, setForm] = useState(initialInputState);
@@ -19,23 +20,38 @@ const AddNewItem = ({ updateTasks }) => {
 
   return (
     <form>
-      <label>
-        Tarefa a ser realizada:
-        <input type="text" name="name" value={form.name} onChange={handleInputChange} />
-      </label>
+      <h2> Criar nova tarefa </h2>
 
-      <label>
-        Deadline:
-        <input type="number" name="deadline" value={form.deadline} onChange={handleInputChange} />
-      </label>
+      <TextField
+        id="standard-basic"
+        label="Tarefa a ser realizada"
+        variant="standard"
+        value={form.name}
+        name="name"
+        onChange={handleInputChange}
+      />
+      <TextField
+        id="standard-basic"
+        label="Deadline"
+        variant="standard"
+        value={form.deadline}
+        name="deadline"
+        onChange={handleInputChange}
+        type="number"
+      />
+      <TextField
+        id="standard-basic"
+        label="Valor a ser gerado pela tarefa"
+        variant="standard"
+        value={form.amount}
+        name="amount"
+        onChange={handleInputChange}
+        type="number"
+      />
 
-      <label>
-        Valor a ser gerado pela tarefa:
-        <input type="number" name="amount" value={form.amount} onChange={handleInputChange} />
-      </label>
-
-      <input type="button" value="Enviar" onClick={onSubmit}/>
-
+      <Button variant="outlined" onClick={onSubmit}>
+        Enviar
+      </Button>
     </form>
   );
 };
